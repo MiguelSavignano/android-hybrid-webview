@@ -4,12 +4,13 @@ Convert website in android apk.
 
 ## Create icon
 
-Create new icon with [icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html).
-
-Copy in resources folder
+Using Android studio
+ImportFile > New > Image Asset
+or copy the new icon in all mipmap folders
 ```
-cp ic_launcher/res/* app/src/main/res/
+cp ic_launcher.png ./app/src/main/res/mipmap*
 ```
+- 
 
 ## Build app
 
