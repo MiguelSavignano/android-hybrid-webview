@@ -2,6 +2,14 @@
 
 Convert website in android apk.
 
+
+## Change web url
+
+open file ``app/src/main/java/com.example.webview/MainActivity.kt`` and change the WEB_URL const
+
+```
+const val WEB_URL = "https://my-responsive-website"
+```
 ## Create icon
 
 Using Android studio

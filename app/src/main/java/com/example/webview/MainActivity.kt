@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
-const val WEB_URL = "https://miguelsavignano.wordpress.com/"
+const val WEB_URL = "https://google.com"
 
 class MainActivity : Activity() {
   private var myWebView: WebView? = null
