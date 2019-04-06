@@ -10,28 +10,28 @@ import android.webkit.WebViewClient
 const val WEB_URL = "https://google.com"
 
 class MainActivity : Activity() {
-  private var myWebView: WebView? = null
+  private var webView: WebView? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     this.setContentView(R.layout.activity_main)
-    this.myWebView = this.findViewById(R.id.webView)
-    myWebView!!.settings.javaScriptEnabled = true
-    myWebView!!.webViewClient = MyWebViewClient()
-    myWebView!!.loadUrl(WEB_URL)
+    webView = this.findViewById(R.id.webView)
+    webView!!.settings.javaScriptEnabled = true
+    webView!!.webViewClient = AppWebViewClient()
+    webView!!.loadUrl(WEB_URL)
   }
 
   override fun onBackPressed() {
-    // Check if there's history
-    if (this.myWebView!!.canGoBack())
-      this.myWebView!!.goBack()
+    // device back button go back in the web view
+    if (webView!!.canGoBack())
+      webView!!.goBack()
     else
       super.onBackPressed()
   }
 
-  private inner class MyWebViewClient() : WebViewClient() {
+  private inner class AppWebViewClient() : WebViewClient() {
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-      //remain in the web view when click links in the same host
+      // remain in the web view when click links in the same host
       if (Uri.parse(url).host == Uri.parse(WEB_URL).host) {
         return false
       }
