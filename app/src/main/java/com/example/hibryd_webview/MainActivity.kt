@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     toggle.syncState()
 
     nav_view.setNavigationItemSelectedListener(this)
-    showToast(applicationContext, "Hello world")
     createWebview()
   }
 
@@ -84,10 +83,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     // Handle navigation view item clicks here.
     when (item.itemId) {
       R.id.nav_camera -> {
-        // Handle the camera action
+        showToast(applicationContext, "Camera")
       }
       R.id.nav_gallery -> {
-
+        val script = readAssetFileText("onClickNavbar.js")
+        webview_content.evaluateJavascript(script, {value -> })
       }
       R.id.nav_slideshow -> {
 
@@ -123,15 +123,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
       return true
     }
 
-    fun readAssetFileText(fileName: String): String {
-      return assets.open(fileName).bufferedReader().use { it.readText() }
-    }
 
     // basic auth
     // override fun onReceivedHttpAuthRequest(view: WebView, handler: HttpAuthHandler, host: String, realm: String) {
     //   handler.proceed("user", "password")
     // }
   }
+  fun readAssetFileText(fileName: String): String {
+    return assets.open(fileName).bufferedReader().use { it.readText() }
+  }
+
 }
 
 class WebAppInterface(private val mContext: Context) {

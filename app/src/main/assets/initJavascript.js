@@ -6,6 +6,7 @@
 
     $("header") && $("header").remove();
     $("footer") && $("footer").remove();
+    $("nav") && $("nav").remove();
 
     // var buttonAuth = $(".body .login > button");
     // var newButtonAuth = removeAllEventListeners(buttonAuth);
